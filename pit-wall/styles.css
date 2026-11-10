@@ -1,0 +1,743 @@
+
+:root {
+    --black: #0b0b0f;
+    --panel: #16161d;
+    --panel-light: #1e1e27;
+    --red: #e10600;
+    --white: #f5f5f7;
+    --muted: #a4a4ad;
+    --line: #292932;
+
+    --ferrari: #e10600;
+    --mclaren: #ff8700;
+    --mercedes: #00d2be;
+    --audi: #a5a5b1;
+
+    --font: 'Titillium Web', 'Segoe UI', sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--black);
+    color: var(--white);
+    font-size: 14px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+/* TOPO */
+
+.topbar {
+    min-height: 68px;
+    padding: 0 4%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 24px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.logo span,
+footer span {
+    color: var(--red);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    color: var(--muted);
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+.menu a:hover {
+    color: var(--white);
+    transition: color .2s;
+}
+
+/* BOTÕES */
+
+.btn-primary,
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    padding: 12px 20px;
+    min-height: 38px;
+
+    font-size: .72rem;
+    font-weight: 900;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: background .2s, transform .2s;
+}
+
+.btn-primary {
+    background: var(--red);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: #b90500;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    color: var(--white);
+    background: transparent;
+    border: 1px solid var(--white);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 390px;
+    padding: 58px 4% 44px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 32px;
+
+    background:
+        linear-gradient(
+            110deg,
+            var(--black) 0%,
+            var(--black) 62%,
+            var(--red) 62%,
+            var(--red) 64%,
+            rgba(11,11,15,.35) 64%
+        ),
+        url("img/piloto.jpg") right center / 55% 100% no-repeat;
+}
+
+.hero-content {
+    max-width: 620px;
+}
+
+.eyebrow {
+    color: var(--red);
+
+    font-size: .7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: .9;
+
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--red);
+}
+
+.hero-description {
+    color: #c5c5cc;
+    margin: 18px 0;
+    line-height: 1.45;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* INFORMAÇÕES DO HERO */
+
+.hero-stats {
+    align-self: flex-end;
+
+    display: flex;
+    gap: 22px;
+
+    padding: 14px 0 4px;
+
+    text-align: center;
+    min-width: 260px;
+}
+
+.hero-stats div {
+    display: flex;
+    flex-direction: column;
+
+    border-left: 1px solid rgba(255,255,255,.35);
+    padding-left: 12px;
+}
+
+.hero-stats strong {
+    font-size: 2.3rem;
+    line-height: 1;
+
+    font-weight: 900;
+    font-style: italic;
+}
+
+.hero-stats span {
+    color: var(--muted);
+
+    font-size: .62rem;
+    text-transform: uppercase;
+}
+
+/* ZEBRA */
+
+.kerb {
+    height: 12px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            var(--red) 0,
+            var(--red) 40px,
+            var(--white) 40px,
+            var(--white) 80px
+        );
+}
+
+/* CONTEÚDO */
+
+.container {
+    width: min(100% - 8%, 1200px);
+    margin: 0 auto;
+}
+
+.section {
+    padding: 42px 0 16px;
+}
+
+.section h2 {
+    font-size: 1.65rem;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+
+    margin-bottom: 22px;
+}
+
+.section-number {
+    color: var(--red);
+
+    font-size: .72rem;
+    margin-right: 8px;
+
+    vertical-align: middle;
+}
+
+/* GRID DOS PILOTOS */
+
+.drivers {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 18px;
+}
+
+.driver-card {
+    min-height: 130px;
+    padding: 12px 18px;
+
+    background: var(--panel);
+
+    border-top: 5px solid var(--team);
+
+    transition: transform .25s;
+}
+
+.team-ferrari {
+    --team: var(--ferrari);
+}
+
+.team-mclaren {
+    --team: var(--mclaren);
+}
+
+.team-mercedes {
+    --team: var(--mercedes);
+}
+
+.team-audi {
+    --team: var(--audi);
+}
+
+.driver-card:hover {
+    transform: translateY(-6px);
+}
+
+.car-number {
+    display: block;
+
+    color: var(--team);
+
+    font-size: 4.3rem;
+    line-height: .95;
+
+    font-weight: 900;
+    font-style: italic;
+
+    opacity: .35;
+}
+
+.driver-card h3 {
+    font-size: .95rem;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.driver-card p {
+    color: var(--muted);
+    font-size: .75rem;
+}
+
+/* FILTROS */
+
+.filters {
+    display: flex;
+    align-items: flex-end;
+
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+    gap: 5px;
+
+    color: var(--muted);
+    font-size: .68rem;
+    text-transform: uppercase;
+}
+
+/* CAMPOS */
+
+input,
+select,
+textarea {
+    width: 100%;
+    min-width: 0;
+
+    color: var(--white);
+    background: #0f0f14;
+
+    border: 1px solid #30303a;
+
+    padding: 10px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--red);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #777780;
+}
+
+.filter-button {
+    min-width: 90px;
+}
+
+/* TABELA */
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: var(--panel);
+
+    font-size: .78rem;
+}
+
+th,
+td {
+    text-align: left;
+
+    padding: 12px 10px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+th {
+    color: var(--muted);
+
+    font-size: .62rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+}
+
+tbody tr:hover {
+    background: #1e1e28;
+}
+
+.leader {
+    background: rgba(225,6,0,.12);
+}
+
+.pos {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+    height: 26px;
+
+    background: var(--white);
+    color: var(--black);
+
+    font-weight: 900;
+}
+
+.leader .pos {
+    background: var(--red);
+    color: var(--white);
+}
+
+.bar {
+    display: inline-block;
+
+    width: 4px;
+    height: 16px;
+
+    margin-right: 7px;
+
+    vertical-align: middle;
+
+    background: var(--team);
+}
+
+.team-color-mclaren {
+    --team: var(--mclaren);
+}
+
+.team-color-ferrari {
+    --team: var(--ferrari);
+}
+
+.team-color-mercedes {
+    --team: var(--mercedes);
+}
+
+.team-color-audi {
+    --team: var(--audi);
+}
+
+/* INGRESSOS */
+
+.tickets {
+    display: grid;
+
+    grid-template-columns: 1fr 1.6fr;
+
+    gap: 32px;
+
+    align-items: start;
+
+    padding-bottom: 48px;
+}
+
+.tickets-info h2 {
+    margin-bottom: 12px;
+}
+
+.tickets-info > p {
+    color: #c5c5cc;
+    margin-bottom: 20px;
+}
+
+.ticket-notice {
+    padding: 12px;
+    margin-bottom: 14px;
+
+    border-left: 4px solid #e8d600;
+
+    background: rgba(232,214,0,.08);
+
+    font-weight: 700;
+}
+
+.ticket-prices {
+    list-style: none;
+}
+
+.ticket-prices li {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.ticket-prices strong {
+    color: var(--red);
+}
+
+/* FORMULÁRIO */
+
+.ticket-form {
+    padding: 22px;
+
+    background: var(--panel);
+
+    border-top: 4px solid var(--red);
+}
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+
+    min-width: 0;
+}
+
+.form-group label {
+    color: var(--muted);
+
+    font-size: .65rem;
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    font-size: .78rem;
+}
+
+.form-group input[type="file"] {
+    padding: 8px;
+}
+
+.form-group small {
+    color: var(--muted);
+    font-size: .65rem;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+/* RODAPÉ */
+
+footer {
+    border-top: 1px solid var(--line);
+
+    padding: 22px 4%;
+
+    text-align: center;
+
+    color: var(--muted);
+    font-size: .68rem;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    .topbar {
+        min-height: 60px;
+        padding: 0 4%;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .top-buy {
+        padding: 10px 12px;
+        font-size: .62rem;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: stretch;
+
+        min-height: auto;
+
+        padding: 42px 4% 28px;
+
+        background: var(--black);
+    }
+
+    .hero h1 {
+        font-size: 3.2rem;
+    }
+
+    .hero-stats {
+        align-self: flex-start;
+
+        gap: 18px;
+
+        min-width: 0;
+    }
+
+    .hero-stats strong {
+        font-size: 1.8rem;
+    }
+
+    .desktop-break {
+        display: none;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    .section {
+        padding-top: 32px;
+    }
+
+    .drivers {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .driver-card {
+        min-height: 112px;
+        padding: 10px 12px;
+    }
+
+    .car-number {
+        font-size: 3.2rem;
+    }
+
+    .driver-card h3 {
+        font-size: .8rem;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-button {
+        width: 100%;
+    }
+
+    table {
+        min-width: 620px;
+    }
+
+    td {
+        white-space: nowrap;
+    }
+
+    .tickets {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: 1;
+    }
+
+    .ticket-form {
+        padding: 16px;
+    }
+
+}
+
+/* CELULARES MENORES */
+
+@media (max-width: 390px) {
+
+    .hero h1 {
+        font-size: 2.7rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .drivers {
+        gap: 9px;
+    }
+
+    .driver-card h3 {
+        font-size: .72rem;
+    }
+
+    .car-number {
+        font-size: 2.8rem;
+    }
+
+}
